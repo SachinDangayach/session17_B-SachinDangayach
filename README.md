@@ -1,5 +1,7 @@
 # Assignment 17_B
 
+### I have placed 110 functions as the assignment solution
+
 <p>
 Look at this sample file: sample.pyPreview the document You are to write such examples, where you describe the code to be written (starts with #), and the code it should generate. The file shows 3 examples of what text should generate what code.
 write 100 such examples. These are the requirements:
