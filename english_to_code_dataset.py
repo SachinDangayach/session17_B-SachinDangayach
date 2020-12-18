@@ -606,3 +606,232 @@ def cal_density(mass,volume):
         return (temp - 32) * (5/9)
     else: # Convert to F
         return (temp * 9/5) + 32
+
+
+
+#python code to merge dictionaries
+def merge1():
+    test_list1 = [{"a": 1, "b": 4}, {"c": 10, "d": 15},
+                  {"f": "gfg"}]
+    test_list2 = [{"e": 6}, {"f": 3, "fg": 10, "h": 1},
+                  {"i": 10}]
+    print("The original list 1 is : " + str(test_list1))
+    print("The original list 2 is : " + str(test_list2))
+    for idx in range(0, len(test_list1)):
+        id_keys = list(test_list1[idx].keys())
+        for key in test_list2[idx]:
+
+            if key not in id_keys:
+                test_list1[idx][key] = test_list2[idx][key]
+
+    print("The Merged Dictionary list : " + str(test_list1))
+
+
+
+#python program for vertical concatenating of mqatrix
+def vertical_concatenation():
+    test_list = [["this","is"], ["program", "for"], ["vertical","concatenation"]]
+    print("The original list : " + str(test_list))
+    res = []
+    N = 0
+    while N != len(test_list):
+        temp = ''
+        for idx in test_list:
+            try: temp = temp + idx[N]
+            except IndexError: pass
+        res.append(temp)
+        N = N + 1
+    res = [ele for ele in res if ele]
+    print("List after column Concatenation : " + str(res))
+vertical_concatenation()
+
+
+# Python code to Get Kth Column of Matrix
+
+def kth_column(test_list=[[4, 5, 6], [8, 1, 10], [7, 12, 5]],k=2):
+
+    print("The original list is : " + str(test_list))
+    K =k
+    res = list(zip(*test_list)[K])
+    print("The Kth column of matrix is : " + str(res))
+
+
+# python code to print all possible subarrays using recursion
+
+def printSubArrays(arr, start, end):
+    if end == len(arr):
+        return
+    elif start > end:
+        return printSubArrays(arr, 0, end + 1)
+    else:
+        print(arr[start:end + 1])
+        return printSubArrays(arr, start + 1, end)
+
+arr = [1, 2, 3]
+printSubArrays(arr, 0, 0)
+
+# Python Program to find sum of nested list using Recursion
+total = 0
+def sum_nestedlist(l):
+    global total
+    for j in range(len(l)):
+        if type(l[j]) == list:
+
+            sum_nestedlist(l[j])
+        else:
+            total += l[j]
+
+sum_nestedlist([[1, 2, 3], [4, [5, 6]], 7])
+print(total)
+
+#python program to find power of number using recursion
+def power(N, P):
+    if (P == 0 or P == 1):
+        return N
+    else:
+        return (N * power(N, P - 1))
+
+print(power(5, 2))
+
+
+# python program to Filter String with substring at specific position
+def f_substring():
+    test_list = ['program ', 'to', 'filter', 'for', 'substring']
+    print("The original list is : " + str(test_list))
+    sub_str = 'geeks'
+    i, j = 0, 5
+    res = list(filter(lambda ele: ele[i: j] == sub_str, test_list))
+    print("Filtered list : " + str(res))
+
+
+# python code to remove punctuation from the string
+def r_punc():
+    test_str = "end, is best : for ! Nlp ;"
+    print("The original string is : " + test_str)
+    punc = '''!()-[]{};:'"\, <>./?@#$%^&*_~'''
+    for ele in test_str:
+        if ele in punc:
+            test_str = test_str.replace(ele, "")
+    print("The string after punctuation filter : " + test_str)
+
+
+htness_4
+
+
+# Python program to implement Gnome Sort
+def gnomeSort(arr, n):
+    index = 0
+    while index < n:
+        if index == 0:
+            index = index + 1
+        if arr[index] >= arr[index - 1]:
+            index = index + 1
+        else:
+            arr[index], arr[index - 1] = arr[index - 1], arr[index]
+            index = index - 1
+    return arr
+arr = [34, 2, 10, -9]
+n = len(arr)
+arr = gnomeSort(arr, n)
+print("Sorted seqquence after applying Gnome Sort :")
+for i in arr:
+    print(i)
+
+
+# Python program to implement Pigeonhole Sort */
+def pigeonhole_sort(a):
+    my_min = min(a)
+    my_max = max(a)
+    size = my_max - my_min + 1
+    holes = [0] * size
+    for x in a:
+        assert type(x) is int, "integers only please"
+        holes[x - my_min] += 1
+    i = 0
+    for count in range(size):
+        while holes[count] > 0:
+            holes[count] -= 1
+            a[i] = count + my_min
+            i += 1
+a = [8, 3, 2, 7, 4, 6, 8]
+print("Sorted order is : ", end=" ")
+pigeonhole_sort(a)
+for i in range(0, len(a)):
+    print(a[i], end=" ")
+
+
+
+#python program to implement stooge sort
+def stoogesort(arr, l, h):
+    if l >= h:
+        return
+    if arr[l] > arr[h]:
+        t = arr[l]
+        arr[l] = arr[h]
+        arr[h] = t
+    if h - l + 1 > 2:
+        t = (int)((h - l + 1) / 3)
+        stoogesort(arr, l, (h - t))
+        stoogesort(arr, l + t, (h))
+        stoogesort(arr, l, (h - t))
+
+arr = [2, 4, 5, 3, 1]
+n = len(arr)
+stoogesort(arr, 0, n - 1)
+for i in range(0, n):
+    print(arr[i], end= \' \')
+
+# Python program to find the  difference between two times
+
+def difference(h1, m1, h2, m2):
+
+    t1 = h1 * 60 + m1
+    t2 = h2 * 60 + m2
+    if (t1 == t2):
+        print("Both are same times")
+        return
+    else:
+        diff = t2 - t1
+    h = (int(diff / 60)) % 24
+    m = diff % 60
+    print(h, ":", m)
+difference(7, 20, 9, 45)
+difference(15, 23, 18, 54)
+difference(16, 20, 16, 20)
+
+
+# Python program to convert time from 12 hour to 24 hour format
+def convert24(str1):
+    if str1[-2:] == "AM" and str1[:2] == "12":
+        return "00" + str1[2:-2]
+    elif str1[-2:] == "AM":
+        return str1[:-2]
+
+    elif str1[-2:] == "PM" and str1[:2] == "12":
+        return str1[:-2]
+    else:
+        return str(int(str1[:2]) + 12) + str1[2:8]
+print(convert24("08:05:45 PM"))
+
+
+# Python 3 program to find time for a given angle.
+
+def calcAngle(hh, mm):
+    hour_angle = 0.5 * (hh * 60 + mm)
+    minute_angle = 6 * mm
+    angle = abs(hour_angle - minute_angle)
+    angle = min(360 - angle, angle)
+    return angle
+
+
+# python function to print all time when angle between hour hand and minute
+def printTime(theta):
+    for hh in range(0, 12):
+        for mm in range(0, 60):
+            if (calcAngle(hh, mm) == theta):
+                print(hh, ":", mm, sep="")
+                return
+    print("Input angle not valid.")
+    return
+theta = 90.0
+printTime(theta)
